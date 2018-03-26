@@ -19,6 +19,7 @@
         <cdi.api.version>2.0</cdi.api.version>
         <javax.faces.api.version>2.3</javax.faces.api.version>
         <hibernate.core.version>5.2.15.Final</hibernate.core.version>
+        <primefaces.version>6.2</primefaces.version>
     </properties>
 
     <dependencies>
@@ -38,6 +39,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces.version}</version>
         </dependency>
     </dependencies>
 
