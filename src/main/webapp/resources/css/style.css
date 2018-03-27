@@ -1,7 +1,12 @@
 :root {
     --background-color: #292929;
+    --navbar-background-color: #3E3E3E;
 }
 
 body {
     background-color: var(--background-color);
+}
+
+.nav-wrapper {
+    background-color: var(--navbar-background-color);
 }
