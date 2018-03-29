@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "author": "Wallison Freitas",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "chart.js": "^2.7.2"
+  }
 }
