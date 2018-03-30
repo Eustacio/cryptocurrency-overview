@@ -4,6 +4,9 @@
 # Node.js modules
 node_modules/
 
+# Webpack generated files
+bundle.js
+
 # IntelliJ IDEA
 .idea/
 *.iml
