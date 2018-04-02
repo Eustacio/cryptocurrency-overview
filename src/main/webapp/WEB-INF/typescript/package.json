@@ -5,7 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "dev-mode": "webpack --watch"
   },
   "dependencies": {
     "chart.js": "^2.7.2"
