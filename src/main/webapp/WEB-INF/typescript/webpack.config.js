@@ -3,11 +3,13 @@ var path = require('path');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: './src/app.ts',
+  entry: {
+    home: './src/home.ts'
+  },
   output: {
-    // The bundle file is put into the webapp/resources/js folder named as "bundle.js"
+    // The bundle file is put into the webapp/resources/js folder
     path: path.resolve('../../resources/js'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   resolve: {
     extensions: ['.ts', '.js']
