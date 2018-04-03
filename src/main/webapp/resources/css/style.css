@@ -3,8 +3,14 @@
     --navbar-background-color: #3E3E3E;
 }
 
+/* Sets the page background color */
 body {
     background-color: var(--background-color);
+}
+
+/* Sets the page content to 10px below from the navbar */
+.container {
+    margin-top: 10px;
 }
 
 .nav-wrapper {
