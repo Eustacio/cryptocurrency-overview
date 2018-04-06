@@ -1,4 +1,4 @@
-import { CurrencySymbol } from './currency-symbol';
+import { CurrencySymbol } from '../domain/currency-symbol';
 
 // TODO: add documentation
 export class CryptoCompareResponseMapper {
