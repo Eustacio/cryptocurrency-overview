@@ -8,6 +8,10 @@ export class CryptoCompareResponseMapper {
     return CurrencySymbol[symbol] || symbol;
   }
 
+  splitResponse(response: string): string[] {
+    return response.split('~');
+  }
+
   getResponseType(response: string): CryptoCompareResponseType | undefined {
     const responseType: string = response.substring(0, response.indexOf('~'));
 
