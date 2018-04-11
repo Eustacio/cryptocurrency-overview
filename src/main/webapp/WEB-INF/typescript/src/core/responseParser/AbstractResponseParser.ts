@@ -5,7 +5,7 @@ export abstract class AbstractResponseParser implements ResponseParser {
 
   protected responseMapper: CryptoCompareResponseMapper;
 
-  protected constructor() {
+  constructor() {
     this.responseMapper = new CryptoCompareResponseMapper();
   }
 
