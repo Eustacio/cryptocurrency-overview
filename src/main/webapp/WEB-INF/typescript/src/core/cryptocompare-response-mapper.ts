@@ -12,7 +12,7 @@ export class CryptoCompareResponseMapper {
     return response.split('~');
   }
 
-  getResponseType(response: string): CryptoCompareResponseType | undefined {
+  getResponseType(response: string): CryptoCompareResponseType | string {
     const responseType: string = response.substring(0, response.indexOf('~'));
 
     for (const key in CryptoCompareResponseType) {
@@ -20,6 +20,8 @@ export class CryptoCompareResponseMapper {
         return <CryptoCompareResponseType>key;
       }
     }
+
+    return responseType;
   }
 
 }
