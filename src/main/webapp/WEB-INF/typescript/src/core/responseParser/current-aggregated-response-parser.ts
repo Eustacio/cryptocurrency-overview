@@ -1,5 +1,6 @@
 import { AbstractResponseParser } from './AbstractResponseParser';
 import { Current } from '../../domain/data-type/current';
+import { ConvertedCurrencySymbol } from '../../domain/converted-currency-symbol';
 
 export class CurrentAggregatedResponseParser extends AbstractResponseParser {
 
@@ -9,7 +10,7 @@ export class CurrentAggregatedResponseParser extends AbstractResponseParser {
 
   private extractDataFromResponse(response: string): any {
     const responseValues: string[] = this.responseMapper.splitResponse(response);
-    const mask: number = this.getResponseMask(responseValues);
+    const mask: number = super.getResponseMask(responseValues);
 
     let data = {};
     let currentField = 0;
@@ -29,6 +30,18 @@ export class CurrentAggregatedResponseParser extends AbstractResponseParser {
     });
 
     return data;
+  }
+
+  private extractCurrencySymbols(responseData: any): ConvertedCurrencySymbol {
+    const currency: string = responseData['TOSYMBOL'];
+    const cryptocurrency: string = responseData['FROMSYMBOL'];
+
+    return {
+      currency: currency,
+      currencySymbol: this.responseMapper.getCurrencySymbol(currency),
+      cryptocurrency: cryptocurrency,
+      cryptocurrencySymbol: this.responseMapper.getCurrencySymbol(cryptocurrency)
+    };
   }
 
 }
