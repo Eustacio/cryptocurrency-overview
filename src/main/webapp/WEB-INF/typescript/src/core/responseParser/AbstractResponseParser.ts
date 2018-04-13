@@ -5,8 +5,8 @@ export abstract class AbstractResponseParser implements ResponseParser {
 
   protected responseMapper: CryptoCompareResponseUtil;
 
-  constructor(responseMapper: CryptoCompareResponseUtil) {
-    this.responseMapper = responseMapper;
+  constructor() {
+    this.responseMapper = new CryptoCompareResponseUtil();
   }
 
   abstract parse(response: string): any;
