@@ -11,9 +11,4 @@ export abstract class AbstractResponseParser implements ResponseParser {
 
   abstract parse(response: string): any;
 
-  protected getResponseMask(response: string[]): number {
-    const maskHexValue = response[response.length - 1];
-    return parseInt(maskHexValue, 16);
-  }
-
 }

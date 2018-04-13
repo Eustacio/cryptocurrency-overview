@@ -25,7 +25,7 @@ export class CurrentAggregatedResponseParser extends AbstractResponseParser {
 
   private extractDataFromResponse(response: string): any {
     const responseValues: string[] = this.responseMapper.splitResponse(response);
-    const mask: number = super.getResponseMask(responseValues);
+    const mask: number = this.responseMapper.getResponseMask(responseValues);
 
     let data = {};
     let currentField = 0;

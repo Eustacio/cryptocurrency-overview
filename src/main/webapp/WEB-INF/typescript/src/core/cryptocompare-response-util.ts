@@ -15,4 +15,9 @@ export class CryptoCompareResponseUtil {
     return response.substring(0, response.indexOf('~'));
   }
 
+  getResponseMask(response: string[]): number {
+    const maskHexValue = response[response.length - 1];
+    return parseInt(maskHexValue, 16);
+  }
+
 }
