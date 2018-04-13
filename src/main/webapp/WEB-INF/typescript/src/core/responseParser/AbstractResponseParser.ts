@@ -1,11 +1,11 @@
 import { ResponseParser } from './response-parser';
-import { CryptoCompareResponseMapper } from '../cryptocompare-response-mapper';
+import { CryptoCompareResponseUtil } from '../cryptocompare-response-util';
 
 export abstract class AbstractResponseParser implements ResponseParser {
 
-  protected responseMapper: CryptoCompareResponseMapper;
+  protected responseMapper: CryptoCompareResponseUtil;
 
-  constructor(responseMapper: CryptoCompareResponseMapper) {
+  constructor(responseMapper: CryptoCompareResponseUtil) {
     this.responseMapper = responseMapper;
   }
 
