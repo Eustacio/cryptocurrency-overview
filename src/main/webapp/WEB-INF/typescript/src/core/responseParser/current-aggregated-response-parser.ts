@@ -6,7 +6,7 @@ import { CryptoCompareResponseType } from '../../domain/cryptocompare-response-t
 export class CurrentAggregatedResponseParser extends AbstractResponseParser {
 
   parse(response: string): any {
-    const responseType = this.responseMapper.getResponseType(response);
+    const responseType = this.responseUtil.getResponseType(response);
 
     // Ignore the "LOADCOMPLETE" message because it returns no data
     if (responseType === CryptoCompareResponseType.LOAD_COMPLETE) {
@@ -24,8 +24,8 @@ export class CurrentAggregatedResponseParser extends AbstractResponseParser {
   }
 
   private extractDataFromResponse(response: string): any {
-    const responseValues: string[] = this.responseMapper.splitResponse(response);
-    const mask: number = this.responseMapper.getResponseMask(responseValues);
+    const responseValues: string[] = this.responseUtil.splitResponse(response);
+    const mask: number = this.responseUtil.getResponseMask(responseValues);
 
     let data = {};
     let currentField = 0;
@@ -85,9 +85,9 @@ export class CurrentAggregatedResponseParser extends AbstractResponseParser {
 
     return {
       currency: currency,
-      currencySymbol: this.responseMapper.getCurrencySymbol(currency),
+      currencySymbol: this.responseUtil.getCurrencySymbol(currency),
       cryptocurrency: cryptocurrency,
-      cryptocurrencySymbol: this.responseMapper.getCurrencySymbol(cryptocurrency)
+      cryptocurrencySymbol: this.responseUtil.getCurrencySymbol(cryptocurrency)
     };
   }
 

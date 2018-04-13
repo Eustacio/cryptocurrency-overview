@@ -3,10 +3,10 @@ import { CryptoCompareResponseUtil } from '../cryptocompare-response-util';
 
 export abstract class AbstractResponseParser implements ResponseParser {
 
-  protected responseMapper: CryptoCompareResponseUtil;
+  protected responseUtil: CryptoCompareResponseUtil;
 
   constructor() {
-    this.responseMapper = new CryptoCompareResponseUtil();
+    this.responseUtil = new CryptoCompareResponseUtil();
   }
 
   abstract parse(response: string): any;
