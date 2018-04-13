@@ -1,11 +1,26 @@
 import { AbstractResponseParser } from './AbstractResponseParser';
 import { Current } from '../../domain/data-type/current';
 import { ConvertedCurrencySymbol } from '../../domain/converted-currency-symbol';
+import { CryptoCompareResponseType } from '../../domain/cryptocompare-response-type';
 
 export class CurrentAggregatedResponseParser extends AbstractResponseParser {
 
   parse(response: string): any {
+    const responseType = this.responseMapper.getResponseType(response);
 
+    // Ignore the "LOADCOMPLETE" message because it returns no data
+    if (responseType === CryptoCompareResponseType.LOAD_COMPLETE) {
+      return;
+    }
+
+    // Checks whether the message is of the expected type
+    if (responseType !== CryptoCompareResponseType.CURRENT_AGGREGATED) {
+      console.error(`The CurrentAggregatedResponseParser class can't parse response of type '${responseType}'!`);
+      return;
+    }
+
+    const data: any = this.extractDataFromResponse(response);
+    return this.normalizeResponse(data);
   }
 
   private extractDataFromResponse(response: string): any {
