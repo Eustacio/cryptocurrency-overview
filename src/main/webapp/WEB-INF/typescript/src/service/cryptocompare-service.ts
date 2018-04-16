@@ -41,6 +41,10 @@ export class CryptoCompareService {
     return this.subject.asObservable();
   }
 
+  closeWebSocket(): void {
+    this.socket.disconnect();
+  }
+
   private buildSubscription(marketData: CryptoCompareMarketDataType, exchangeMarket: ExchangeMarket,
                             coinAcronym: string[], currency: string): string[] {
     return coinAcronym.map(acronym =>
